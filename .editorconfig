@@ -3,5 +3,6 @@ root = true
 
 [*]
 
-identy_style = space
-ident_size = 2
+indent_style = space
+indent_size = 2
+
