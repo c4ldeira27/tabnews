@@ -4,7 +4,7 @@ import database from "infra/database.js";
 
 export default async function migrations(req, res) {
   let dbClient;
-  if (req.method !== "GET" || req.method !== "POST")
+  if (req.method !== "GET" && req.method !== "POST")
     return res.status(405).end("Bad Method Request");
 
   try {
