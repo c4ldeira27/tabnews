@@ -11,12 +11,16 @@ async function waitForAllServices() {
 
     async function fetchStatusPage() {
       const response = await fetch("http://localhost:3000/api/v1/status");
-      // eslint-disable-next-line no-unused-vars
-      const responseBody = response.json();
+
+      if (response.status !== 200) {
+        throw Error();
+      }
     }
   }
 }
 
-export default {
+const orquestrator = {
   waitForAllServices,
 };
+
+export default orquestrator;
