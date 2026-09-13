@@ -1,4 +1,3 @@
-import database from "infra/database.js";
 import orquestrator from "tests/orquestrator.js";
 
 beforeAll(async () => {
