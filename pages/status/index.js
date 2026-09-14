@@ -18,7 +18,9 @@ export default function StatusPage() {
 }
 
 function UpdatedAt() {
-  const { isLoading, data } = useSWR("/api/v1/status", fetchApi);
+  const { isLoading, data } = useSWR("/api/v1/status", fetchApi, {
+    refreshInterval: 2000,
+  });
 
   let response = "Loading...";
   if (!isLoading && data)
@@ -30,7 +32,7 @@ function DatabaseStatus() {
   const { isLoading, data } = useSWR("/api/v1/status", fetchApi);
 
   let response = "Loading...";
-  console.log(data);
+
   if (!isLoading && data) {
     response = (
       <>
@@ -41,7 +43,6 @@ function DatabaseStatus() {
         <div>Max connections: {data.dependencies.database.max_connections}</div>
       </>
     );
-
-    return <>{response}</>;
   }
+  return <>{response}</>;
 }
